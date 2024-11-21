@@ -14,6 +14,13 @@ mongoose.connect(process.env.MONGO_URI)
 
 
 app.use('/api', routes); 
+app.get("/", (req, res)=>{
+  res.json({
+    success: true,
+    message: "Server Running Successfully"
+  })
+})
+
 
 app.listen(process.env.PORT || 5000, () => {
   console.log(`Server is running on port ${process.env.PORT || 5000}`);
